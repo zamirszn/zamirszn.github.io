@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Mubarak Lawal{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/site.html' %}">
+    <link rel="mask-icon" href="{% static 'images/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Mubarak Lawal Porfolio">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zamirszn">
+    <meta name="twitter:title" content="Mubarak Lawal">
+    <meta name="twitter:description" content="Mubarak Lawal Porfolio">
+    <meta name="twitter:creator" content="@zamirszn">
+    <meta name="twitter:image" content="{% static 'images/twitter-card.jpg' %}">
+    <meta property="og:title" content="Mubarak Lawal">
+    <meta property="og:type" content="Article">
+    <meta property="og:image" content="{% static 'images/fb-og-image.jpg' %}">
+    <meta property="og:description" content="Mubarak Lawal Porfolio">
+    <meta property="og:site_name" content="Mubarak Lawal">
+    <link rel="stylesheet" media="all" href="{% static 'css/app.css' %}">
+    <script>
+      var viewportmeta = document.querySelector('meta[name="viewport"]');
+      if (viewportmeta)
+      {
+        if (screen.width < 375)
+        {
+          var newScale = screen.width / 375;
+          viewportmeta.content = 'width=375, minimum-scale=' + newScale + ', maximum-scale=1.0, user-scalable=no, initial-scale=' + newScale + '';
+        }
+        else
+        {
+          viewportmeta.content = 'width=device-width, maximum-scale=1.0, initial-scale=1.0';
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer__center center">
+            <div class="footer__body">
+                <a class="footer__logo" href="index-2.html">
+                    <images class="footer__pic" src="{% static 'images/logo.png' %}" alt="">
+                </a>
+                <div class="footer__text">Agency is a full-service agency, busy designing and building beautiful digital products, brands, and experiences.</div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__copyright">© 2020, mubaraklawal LLC.</div>
+                <div class="footer__social">
+                    <div class="footer__text">Follow us</div>
+                    <div class="footer__list">
+                        <a class="footer__link" href="#">
+                            <svg class="icon icon-facebook">
+                                <use xlink:href="{% static 'images/sprite.svg#icon-facebook' %}"></use>
+                            </svg>
+                        </a>
+                        <a class="footer__link" href="#">
+                            <svg class="icon icon-youtube">
+                                <use xlink:href="{% static 'images/sprite.svg#icon-youtube' %}"></use>
+                            </svg>
+                        </a>
+                        <a class="footer__link" href="#">
+                            <svg class="icon icon-instagram">
+                                <use xlink:href="{% static 'images/sprite.svg#icon-instagram' %}"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line" data-aos="animation-line" data-aos-offset="0">
+            <svg class="line__svg" xmlns="http://www.w3.org/2000/svg" width="542" height="820">
+                <path fill="none" stroke="#D1ECFD" stroke-width="2" d="M67.002 1c-9.846 2.322-18.256 5.77-25.23 10.347C14.268 29.392 1 59 1 80.242c0 19.465 4.22 33.53 10.7 44.064 8.173 13.266 21.127 23.34 35.946 31.717S81 167.65 99.544 164.4s35.194-14.103 42.438-25.04c6.803-10.273 9.465-18.356 10.034-26.6.594-8.62.814-19.894-12.9-35.218-3.31-3.697-9.405-8.03-15.145-10.693-2.098-.973-14.094-6.014-27.454-5.476-11.45.46-24.028 5.89-30.787 11.675C50.498 86.087 44.87 111.313 47.656 129c2.55 16.172 13.563 35.116 33.645 48.24 11.517 7.526 26.962 13.923 42.67 16.554 15.095 2.53 36.494 6.735 53.47 12.248 16.285 5.29 28.394 11.897 31.848 13.942 6.62 3.92 11.166 8.683 13.38 10.648 4.286 3.803 19.582 21.91 25.16 36.19 9.54 24.417 8.908 49.09 8.256 54.772-1.8 15.703-7 27.963-12.697 37.603-9.28 15.704-21.97 24.68-33.526 28.574-10.768 3.63-20.613 2.77-24.24.96-5.258-2.624-13.262-6.02-18.323-15.728-.928-1.78-2.566-4.622-3.738-9.447-.664-2.732-1.82-19.51 3.738-34.634 2.365-6.435 7.644-21.235 18.323-34.158 14.42-17.453 35.752-33.512 45.406-39.992 16.803-11.278 32.187-19.34 48.6-22.522 3.163-.617 17.907-2.69 31.893-.54 13.195 2.03 25.598 8.157 31.39 11.784 12.017 7.524 21.507 18.63 28.876 37.773 1.484 3.855 2.396 10.446 2.868 15.367.5 5.11.503 8.59 0 14.718-1.117 13.603-4.78 29.58-14.285 47.846-3.29 6.323-8.076 14.9-16.05 25.698-4.696 6.36-13.85 17.642-27.464 33.846l-42.38 50.89c-16.087 20.25-28.28 36.992-36.11 52.17-5.392 10.447-15.198 27.915-20.753 48.628-1.272 4.743-5.466 30.186-2.688 54.394 2.714 23.655 12.28 45.97 21.036 60.27 19.17 31.318 50.474 51.02 59.716 55.687 19.282 9.734 45.952 18.277 76.11 25.364C399.75 772.703 430.5 777.88 466 785.023l175.725 33.055"></path>
+            </svg>
+        </div>
+    </footer>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+</body>
+</html>
