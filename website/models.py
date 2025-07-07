@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils import timezone
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -12,9 +14,14 @@ class Project(models.Model):
     case_link = models.URLField(blank=True)
     featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
+    year = models.PositiveIntegerField(
+         default=timezone.now().year,
+        help_text="Year the project was completed",
+        validators=[MinValueValidator(2000), MaxValueValidator(timezone.now().year + 1)]
+    )
 
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.year})"
 
     def get_absolute_url(self):
         return reverse("project_detail", kwargs={"slug": self.slug})

@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
   
@@ -29,6 +31,11 @@
     <meta property="og:description" content="Mubarak Lawal Porfolio">
     <meta property="og:site_name" content="Mubarak Lawal">
     <link rel="stylesheet" media="all" href="{% static 'css/app.css' %}">
+
+    
+
+
+   
     <script>
       var viewportmeta = document.querySelector('meta[name="viewport"]');
       if (viewportmeta)
@@ -44,6 +51,38 @@
         }
       }
     </script>
+
+
+    <script>
+    function updateLogoStyles() {
+        const logo = document.getElementById('responsive-logo');
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth >= 1200) {
+            logo.style.width = '100px';
+            logo.style.paddingLeft = '40px'; // Add left padding on large screens
+        } else if (screenWidth >= 992) {
+            logo.style.width = '90px';
+            logo.style.paddingLeft = '0'; // Reset padding
+        } else if (screenWidth >= 768) {
+            logo.style.width = '70px';
+            logo.style.paddingLeft = '0';
+        } else {
+            logo.style.width = '50px';
+            logo.style.paddingLeft = '0';
+        }
+    }
+
+    // Initialize and update on resize
+    window.addEventListener('load', updateLogoStyles);
+    window.addEventListener('resize', updateLogoStyles);
+    
+    </script>
+
+
+
+
+
 </head>
 
 <body>
