@@ -20,6 +20,7 @@ from django.urls import include, path
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("website.urls")),
@@ -28,3 +29,8 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_title = "Mubarak Lawal Portfolio"
+admin.site.site_header = "Welcome, Zamir"
+admin.site.index_title = "Site administration"
+

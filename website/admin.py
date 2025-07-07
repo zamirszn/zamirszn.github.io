@@ -1,15 +1,17 @@
 from django.contrib import admin
 from .models import Project, ProjectImage
+from unfold.admin import ModelAdmin, TabularInline
 
-class ProjectImageInline(admin.TabularInline):
+
+class ProjectImageInline(TabularInline):
     model = ProjectImage
     extra = 1
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ModelAdmin):
     save_as = True
     prepopulated_fields = {"slug": ("title",)}
-    list_display = ('title', 'category', 'featured')
-    list_filter = ('featured', 'category')
-    search_fields = ('title', 'description')
+    list_display = ('title', 'category', 'featured', "year")
+    list_filter = ('featured', 'category' , "year")
+    search_fields = ('title', 'description' , "year")
     inlines = [ProjectImageInline]
