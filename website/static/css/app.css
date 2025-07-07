@@ -3842,6 +3842,7 @@ select {
 .about__hello {
   margin-bottom: 40px;
   font-weight: 600;
+  font-size: 54px; /* or larger if needed */
 }
 
 .about__hello span {
