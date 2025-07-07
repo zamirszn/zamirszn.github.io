@@ -1,0 +1,5 @@
+fly.toml
+.git/
+staticfiles/
+db.sqlite3
+media/

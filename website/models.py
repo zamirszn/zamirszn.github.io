@@ -1,15 +1,20 @@
 from django.db import models
 from django.utils.text import slugify
-from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
+
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=300, blank=True)
     description = models.TextField()
     category = models.CharField(max_length=100, blank=True)
-    cover_image = models.ImageField(upload_to='projects/covers/')
+    cover_image =  CloudinaryField(
+        "cover_images",
+        blank=True,
+        null=True,
+    )
     preview_link = models.URLField(blank=True)
     case_link = models.URLField(blank=True)
     featured = models.BooleanField(default=False)
@@ -32,7 +37,11 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='projects/gallery/')
+    image = CloudinaryField(
+        "project_images",
+        blank=True,
+        null=True,
+    )
     caption = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
